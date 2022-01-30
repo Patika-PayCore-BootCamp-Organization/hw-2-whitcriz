@@ -387,3 +387,200 @@ Our classes in this example are decoupled and communicate through the `Keyboard`
 
 ---
 
+**Rapid Application Development (RAD) model** is a Software Development Life Cycle Model based on prototyping and iterative development with no specific planning involved. A prototype is a working model that is functionally equivalent to a component of the product. RAD model uses minimal planning in favor of rapid prototyping, so there is less attention paid to the planning and more priority is given to the development tasks. The process of writing the software itself involves the planning required for developing the product. The model targets at developing software in a short span of time. In other words, in the RAD model, the functional modules are developed in parallel as prototypes and are integrated to make the complete product for faster product delivery. Since there is no detailed preplanning, it makes it easier to incorporate the changes within the development process.
+
+ We can say that any software project that is divisible into smaller modules, which are capable to be assigned independently to different teams like developers, domain experts, customer representatives and other IT teams can be developed using RAD Model which is iterative and incremental. All these various modules are ultimately combined to get the final product.
+
+RAD focuses on gathering customer requirements through workshops or focus groups, early testing of the prototypes by the customer using iterative concept, reuse of the existing prototypes (components), continuous integration and rapid delivery.
+
+The most important aspect for this model to be successful is to make sure that the prototypes developed are reusable.This model allows rapid change and development of the components or product, encourages active customer feedback by providing the early visibility of the product to a customer.
+
+Despite all the advantages of the RAD Model, we can not use this model for some cases like small team, low-budget projects.
+
+RAD model distributes the analysis, design, build and test phases into a series of short, iterative development cycles. It has the following phases:
+
+- **Business Modeling :** The information flow among business channels is defined by answering questions like what data drives the business process, what data is generated, who generates it, where does the information go, who process it, what are the factors driving successful flow of information. 
+	
+- **Data Modeling :** The information from the previous, Business Modeling, phase is analyzed to form sets of data objects vital for the business. The attributes of all data sets is identified and defined. The relation between these data objects are established and defined in detail in relevance to the business model.
+	
+- **Process Modeling :** The data object sets defined from the previous phase are converted to establish the business information flow needed to achieve specific business objectives as per the business model. Then, the process model for any changes or enhancements to the data object sets is defined. Process descriptions for adding, deleting, retrieving or modifying a data object are given.
+	
+- **Application Generation :** The actual system is built and coding is done by using automation tools to convert process and data models into actual prototypes.
+
+- **Testing and Turnover :**  Even though the prototypes are independently tested during every iteration and hence the whole testing time is reduced in this model, the data flow and the interfaces between all components need to be completely tested with whole test coverage. 
+
+---
+
+#### Q11 - What is Spring Boot starter ? How is it useful ?
+
+---
+
+Spring Boot starters were built to reduce dependency management time for developers. Spring Boot Starter is a  dependency descriptor and Starter POMs are a set of convenient dependency descriptors that we can include in our application. We have more than 30 Spring Boot built-in starters that allow us to add jars in the classpath. Spring Boot built-in starters make development easier and rapid. In the Spring Boot Framework, all the starters follow a similar naming pattern: `spring-boot-starter-#,` where `#` denotes a particular type of application. For example, if we want to use Spring and JPA for database access, we need to include the `spring-boot-starter-data-jpa` dependency in our `pom.xml` file of the project.
+
+Some of built-in starters are:
+	
+- **Core Starter - `spring-boot-starter`** is for including auto-configuration support, logging, and YAML. 
+	
+- **Web Starter - `spring-boot-starter-web`**  is for building the web application, including RESTful applications using Spring MVC. It uses Tomcat as the default embedded container.
+	
+- **Test Starter - `spring-boot-starter-test`** is for testing Spring Boot applications with libraries, including JUnit, Hamcrest, and Mockito.
+	
+- **Data JPA Starter - `spring-boot-starter-data-jpa`** is for Spring Data JPA with Hibernate, helps with specifying the database vendor, URL connection, and credentials. 
+	
+- **Mail Starter - `spring-boot-starter-mail`** is for supporting Java Mail and Spring Framework's email sending.
+	
+- **Security Starter - `spring-boot-starter-security`** is for Spring Security.
+
+- 	**Cache Starter - `spring-boot-starter-cache`** is for enabling Spring Boot cache mechanism.
+
+There are several advantages of using Starters like:
+- Increasing overall productivity by reducing dependency management time for developers
+- Easier POM management because of adding less required dependencies
+- Tested, production-ready and supported dependency configurations.
+
+
+---
+
+#### Q12 - What is Caching ? How can we achive caching in Spring Boot ?
+
+---
+
+A cache is a high-speed data storage layer which stores a subset of data, typically transient in nature, so that future requests for that data are served up faster than is possible by accessing the data’s primary storage location. Caching is the process of storing and accessing copies of files or simply data in a cache, or temporary storage location in order to access them more quickly. Normally, the data required for any process resides in the main memory. However, it is transferred to the cache memory, that is a part of temporary memory, RAM, temporarily if it is used frequently enough.  It lies between the application and persistence database. It stores the recently used data that reduces the number of database hits as much as possible. In other words, caching is storing data for future reference.
+A cache's primary purpose is to increase data retrieval performance by reducing the need to access the underlying slower storage layer.
+
+ We have four types of caching:
+- **In-memory Caching** increases the performance of the application. Memcached and Redis are examples of in-memory caching. It stores key-value between application and database. Redis is an in-memory, distributed, and advanced caching tool that allows backup and restore facility. We can manage cache in distributed clusters, also.
+	
+- **Database Caching** is a mechanism that generates web pages on-demand (dynamically) by fetching the data from the database. It is used in a multi-tier environment that involved clients, web-application server, and database. This caching improves scalability and performance by distributing a query workload. The most popular database caching is the first level cache of Hibernate.
+	
+- **Web server Caching** is a mechanism that stores data for reuse. For example, a copy of a web page served by a web server. It is cached for the first time when a user visits the page. If the user requests the same next time, the cache serves a copy of the page. It avoids server form getting overloaded. Web server caching enhances the page delivery speed and reduces the work to be done by the backend server.
+	
+- 	**CDN Caching**  reduces the load on an application origin and improves the user experience by delivering a local copy of the content from a nearby  *cache edge* (a cache server that is closer to the end-user), or a  *Point of Presence (PoP)*  with the  *Content Delivery Network (CDN)*  component that is used in modern web applications and improves the delivery of the content by replicating commonly requested files (such as HTML Pages, stylesheet, JavaScript, images, videos, etc.) across a globally distributed set of caching servers.
+
+Spring Framework provides caching transparently with cache abstraction. The cache abstraction mechanism allows consistent use of several caching methods with minimal impact on the code. This mechanism applies to Java methods and the main purpose of it is reducing the number of executions based on the information present in the cache. It applies to expensive methods such as CPU or IO bound.
+
+When a method invokes, each time the abstraction applies a cache behavior to the method. It controls if the method has already been executed for the given argument and if executed, the cached result is returned without executing the actual method. Otherwise, firstly, the method executes, and the result is cached and returned to the user. This approach works only for the methods that are guaranteed to return the same output for a given input. It does not matter how many times the method executes. 
+
+The developers take care of two things while working with cache abstractions:
+1. *Cache Declaration :* identifies the methods that need to be cached.
+2. *Cache Configuration :* is the backing cache where the data is stored and read from.
+
+We can enable caching in the Spring Boot by using the **`@EnableCaching`** . This annotation  is a class-level annotation and defined in `org.springframework.cache.annotation` package. It is used together with `@Configuration` class. The auto-configuration enables caching and starts a `CacheManager`, if there is no already defined instance of `CacheManager`. It triggers a post-processor that analyzes every Spring bean for the presence of caching annotations on public methods. When such an annotation is found, a proxy is automatically created to intercept the method call and handle the caching behavior accordingly. The post-processor handles the `@Cacheable`, `@CachePut` and `@CacheEvict` annotations.  Besides, `@EnableCaching` creates an in-memory cache using `ConcurrentHashMap`  for the absence of such caching annotations. 
+
+The caching abstraction mechanism has several Java annotations for caching declaration like:
+- **`@CacheConfig`** is a class-level annotation that provides a common cache-related setting. It tells the Spring where to store cache for the class. 
+
+- **`@Caching`** is used when we need both annotations `@CachePut` or `@CacheEvict` at the same time on the same method. Because Java does not allow multiple annotations of the same type to be declared for a given method, we use `@Caching` annotation.
+
+- **`@Cacheable`** is a method level annotation. It defines a cache for a method's return value. The Spring Framework manages the requests and responses of the method to the cache that is specified in the annotation attribute. The `@Cacheable` annotation contains more options. For example, we can provide a cache name by using the value or cacheNames attribute. We can also specify the key attribute of the annotation that uniquely identifies each entry in the cache. If we do not specify the key, Spring uses the default mechanism to create the key. 
+We can also apply a condition in the annotation by using the condition attribute. When we apply the condition in the annotation, it is called *conditional caching*.
+
+- **`@CacheEvict`** is a method level annotation. It is used when we want to remove stale or unused data from the cache. It requires one or multiple caches that are affected by the action. We can also specify a key or condition into it. If we want wide cache eviction, the `@CacheEvict` annotation provides a parameter called `allEntries`. It evicts all entries rather than one entry based on the key. One important point about `@CacheEvict` annotation is that it can be used with void methods because the method acts as a trigger. It avoids return values. On the other hand, the annotation `@Cacheable` requires a return value that adds/updates data in the cache. 
+
+- **`@CachePut`** is a method level annotation and used when we want to update the cache without interfering the method execution. In other words, the method will always execute, and its result will be placed into the cache. It supports the attributes of `@Cacheable` annotation, however the annotations `@Cacheable` and `@CachePut` have different behavior. There is a slight difference between them is that the `@Cacheable` annotation skips the method execution while the `@CachePut` annotation runs the method and put the result into the cache.
+
+
+---
+
+#### Q13 - What & How & Where & Why to logging ?
+
+---
+
+Logging is the process of creating and capturing log messages and files. Logging requires frameworks and APIs in Java and Java has a built-in logging framework in the java.util.logging package. Besides, it is possible to use third-party frameworks like Log4j, Logback, and many more for logging purposes.
+
+Logging in Spring Boot provides tracing out of information along with a recording of any critical failure that might occur in the application during its run. Spring Boot uses Commons Logging for all internal logging but leaves the underlying log implementation open and default configurations provides a support for the use of Java Util Logging, Log4j2, and Logback. The loggers are configured the console output and also the optional file output with these default configurations. Logback comes with Spring Boot Starters by default and also supports  Java Util Logging, Commons Logging, Log4J, and SLF4J.
+ 
+A default spring boot log file contains the following items:
+
+- **Date and Time** provides the occurrence date and time of the log item.
+- **Log Level** provides the information on what level of information the log is of. It will be one out of the 7 options , the following order of severity from low to high:
+  - *TRACE*
+  - *DEBUG*
+  - *INFO*
+  - *WARN*
+  - *ERROR* 
+  - *FATAL* (Logback does not have a *FATAL* level. It is mapped to *ERROR*)
+  - *OFF*
+- **Process ID** provides the information of the process ID on which the spring boot application is running on.
+- **Separator ---**  signifies the start of actual log messages.
+- **Thread Name** is enclosed within a square [] brackets and mostly contains the thread within which the logging thread or element is present.
+- **Logger Name** is the penultimate element that contains the source class name.
+- **Log Message** explains the methods followed in the application and helps us tracing back to the root cause if an error pops up in the application.
+	
+The log level here shows the importance of log messages and it can be very time-efficient for developers. For instance, when the level shows   *ERROR*,  the application should actually have encountered some serious failure. Every time looking at logs that mention some information about the process can be disturbing and consumer of time in an unefficient way. Sometimes this information may be classified as  *ERROR*  due to improper architecture and so, the logs should be carefully set up while developing the architecture of the application in order to make tracing back to the root point easier. 
+
+When a code in the application executes with each of the classified options available, the corresponding options are validated against the level declared for the application. It is put in the log message if the severity of the level declared for application is lower than the point of code execution. The level can be declared by using the code 
+
+`logging.level.com.<application name>=<logging level>` . 
+
+As an example, when the code breaks and fails due to some corner cases we have not considered during code execution, the location of the code is put into the log message with the appropriate level. However, if the code execution yields a less severe level than the declared level of application, then the logging is skipped.  
+
+Once it is determined of what to put, the application looks for the pattern declared in either the xml or in the java code and corresponding elements are extracted and noted. 
+
+The default log configuration writes messages to the console as they are written. By default, *ERROR-level*, *WARN-level*, and *INFO-level*  messages are logged. 
+We can also enable a *DEBUG* mode  by starting your application with a `--debug` flag :
+
+`$ java -jar myapp.jar --debug`
+
+We can also specify `debug=true` in our `application.properties`.
+
+When the *DEBUG* mode is enabled, a selection of core loggers which are embedded container, Hibernate, and Spring Boot, are configured to output more information. However, enabling the *DEBUG* mode does not configure our application to log all messages with *DEBUG-level*.
+
+Alternatively, we can enable a *TRACE* mode by starting our application with a `--trace` flag or specifying `trace=true` in our `application.properties`. This also enables *TRACE*  logging for a selection of core loggers  which are embedded container, Hibernate schema generation, and the whole Spring portfolio.
+
+In case the terminal supports ANSI, color-coded output is used to aid readability. We can set `spring.output.ansi.enabled` to a supported value to override the auto-detection.
+Color coding is configured by using the `%clr` conversion word. In its simplest form, the converter colors the output according to the log level:
+
+`%clr(%5p)`
+
+We can map of log levels to colors:
+
+| Log Level | Color |
+|------------- |--------|
+| OFF | Red |
+| FATAL | Red |
+| ERROR | Red |
+| WARN | Yellow |
+| INFO | Green |
+| DEBUG | Green |
+| TRACE | Green |
+
+Moreover, the color or style can be specified by providing it as an option to the conversion.
+
+Spring Boot logs only to the console by default and does not write log files. If we want to write log files in addition to the console output, we need to set a `logging.file` or `logging.path` property (for instance, in our `application.properties`).
+
+
+---
+
+#### Q14 - What is Swagger? Have you implemented it using Spring Boot?
+
+---
+
+Swagger is the standard way of documenting the Standard APIs. Swagger is helpful when deploying APIs in azure. Swagger is primarily used for documenting API. For the other developers to be able to use our API, the API must be properly documented and they need to know that what the endpoints  are exposed by the API and what the operations are supported on those endpoints, what parameters they should pass, and what they will get back, what authentication methods to use. . If we want APIs to be consumed and properly used, it is very important to document the APIs.  Swagger and Open API specification are the ways to document an API specifying that what exactly APIs can do.
+
+We can implement *Swagger* using *Spring Boot* by first adding a dependency related to Swagger to generate *Swagger Documentation*. We also need *Swagger UI* to have a visual representation of the Documentation and execute Test Requests.
+
+We start by adding this dependency to `pom.xml` file.
+
+```
+<dependency>
+ <groupId>io.springfox</groupId>
+ <artifactId>springfox-boot-starter</artifactId>
+ <version>3.0.0</version>
+</dependency>
+```
+
+Dependency `springfox-swagger-ui` adds APIs documentation endpoint at root `url /swagger-ui.html`. So we have to make sure our other resource (entity) APIs are not present at root url. We can achieve this by adding following lines over each `ResourceController` class, like `StudentController` class.
+
+```
+@RestController
+@RequestMapping("/api")
+public class StudentController{
+
+// your code
+
+}
+```
+
+---
+
